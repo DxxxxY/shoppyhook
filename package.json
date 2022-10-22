@@ -1,0 +1,21 @@
+{
+    "name": "shoppyhook",
+    "version": "1.0.0",
+    "author": "dxxxxy",
+    "license": "GPL-3.0",
+    "description": "Really simple and lightweight shoppy webhook middleware for express.",
+    "homepage": "https://github.com/DxxxxY/shoppyhook",
+    "keywords": [
+        "shoopy",
+        "webhook",
+        "express",
+        "middleware"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DxxxxY/shoppyhook"
+    },
+    "dependencies": {
+        "crypto": "^1.0.1"
+    }
+}
