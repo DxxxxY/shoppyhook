@@ -19,11 +19,11 @@ module.exports = options => {
 
                 if (signed !== req.headers["x-shoppy-signature"]) return res.status(401).send("Invalid signature")
 
-                console.log("Valid signature")
+                // console.log("Valid signature")
 
                 next()
             } catch (err) {
-                console.log("Error parsing body")
+                // console.log("Error parsing body")
                 next()
             }
         })
