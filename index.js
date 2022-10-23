@@ -18,12 +18,12 @@ module.exports = options => {
 
                 console.log(req.rawBody)
 
-                if (!req.headers["x-shoppy-signature"]) return res.status(400).send("Missing signature header")
+                if (!req.headers["x-shoppy-signature"]) return
 
                 const hmac = crypto.createHmac("sha512", options.secret)
                 const signed = hmac.update(Buffer.from(req.rawBody, "utf-8")).digest("hex")
 
-                if (signed !== req.headers["x-shoppy-signature"]) return res.status(401).send("Invalid signature")
+                if (signed !== req.headers["x-shoppy-signature"]) return
 
                 next()
             } catch (err) {
@@ -31,5 +31,7 @@ module.exports = options => {
                 next()
             }
         })
+
+        res.send("ok")
     }
 }
