@@ -2,9 +2,13 @@ const crypto = require("crypto")
 
 module.exports = options => {
     return (req, res, next) => {
+        console.log("log")
+
         req.rawBody = ""
 
         req.on("data", (chunk) => {
+            console.log("chunk")
+
             req.rawBody += chunk
         })
 
@@ -24,7 +28,7 @@ module.exports = options => {
                 next()
             } catch (err) {
                 console.log("Error parsing body")
-                res.status(400).send("Error parsing body")
+                next()
             }
         })
     }
