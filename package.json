@@ -1,6 +1,6 @@
 {
     "name": "shoppyhook",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "author": "dxxxxy",
     "license": "GPL-3.0",
     "description": "Really simple and lightweight shoppy webhook middleware for express.",

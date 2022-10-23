@@ -12,8 +12,6 @@ module.exports = options => {
             try {
                 req.body = JSON.parse(req.rawBody)
 
-                console.log(req.rawBody)
-
                 if (!req.headers["x-shoppy-signature"]) return res.status(400).send("Missing signature header")
 
                 const hmac = crypto.createHmac("sha512", options.secret)
@@ -21,10 +19,12 @@ module.exports = options => {
 
                 if (signed !== req.headers["x-shoppy-signature"]) return res.status(401).send("Invalid signature")
 
+                console.log("Valid signature")
+
                 next()
             } catch (err) {
                 console.log("Error parsing body")
-                res.status(400).send("Error parsing body")
+                next()
             }
         })
     }
